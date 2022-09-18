@@ -3,10 +3,10 @@ spring:
     gateway:
       routes:
       - id: auth-service
-        uri: lb://auth-service
+        uri: lb://AUTH-SERVICE/
         predicates:
         - Path=/api/auth/**
       - id: demo-service
-        uri: lb://demo-service
+        uri: lb://DEMO-SERVICE/
         predicates:
         - Path=/api/demo/**
