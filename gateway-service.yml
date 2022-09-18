@@ -1,12 +1,14 @@
-spring:
-  cloud:
-    gateway:
-      routes:
-      - id: AUTH-SERVICE
-        uri: lb://AUTH-SERVICE/
-        predicates:
-        - Path=/api/auth/**
-      - id: DEMO-SERVICE
-        uri: lb://DEMO-SERVICE/
-        predicates:
-        - Path=/api/demo/**
+zuul:
+  # To exclude the registration of all eureka service ID based routes
+  ignored-services: '*'
+  routes:
+    auth-service:
+      path: /api/auth/**
+      # By default, the proxy prefix is stripped from the request before the request is forwarded by
+      stripPrefix: false
+    demo-service:
+      path: /api/demo/**
+      # By default, the proxy prefix is stripped from the request before the request is forwarded by
+      stripPrefix: false
+  # Exclude Authorization from sensitive headers
+  sensitiveHeaders: Cookie,Set-Cookie
