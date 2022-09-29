@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://118.70.184.68:82/microservice
+    url: jdbc:mariadb://123.24.142.93:82/microservice
     username: mber
     password: techbro@123
   jpa:
